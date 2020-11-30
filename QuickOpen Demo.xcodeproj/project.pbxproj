@@ -11,7 +11,33 @@
 		3BEB4FB42574865B00ED8B07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEB4FB32574865B00ED8B07 /* ViewController.swift */; };
 		3BEB4FB62574865D00ED8B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BEB4FB52574865D00ED8B07 /* Assets.xcassets */; };
 		3BEB4FB92574865D00ED8B07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEB4FB72574865D00ED8B07 /* Main.storyboard */; };
+		3BEB4FCF2574883F00ED8B07 /* quickopen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEB4FC72574869F00ED8B07 /* quickopen.framework */; };
+		3BEB4FD02574883F00ED8B07 /* quickopen.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEB4FC72574869F00ED8B07 /* quickopen.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BEB4FC62574869F00ED8B07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEB4FC22574869F00ED8B07 /* quickopen.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B92344B2418955500364BBC;
+			remoteInfo = quickopen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3BEB4FD12574883F00ED8B07 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3BEB4FD02574883F00ED8B07 /* quickopen.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3BEB4FAE2574865B00ED8B07 /* QuickOpen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuickOpen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +47,7 @@
 		3BEB4FB82574865D00ED8B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BEB4FBA2574865D00ED8B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BEB4FBB2574865D00ED8B07 /* QuickOpen_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickOpen_Demo.entitlements; sourceTree = "<group>"; };
+		3BEB4FC22574869F00ED8B07 /* quickopen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = quickopen.xcodeproj; path = "quick-open/quickopen.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEB4FCF2574883F00ED8B07 /* quickopen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +67,8 @@
 			children = (
 				3BEB4FB02574865B00ED8B07 /* QuickOpen Demo */,
 				3BEB4FAF2574865B00ED8B07 /* Products */,
+				3BEB4FC12574866100ED8B07 /* Submodules */,
+				3BEB4FC8257486BD00ED8B07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +93,29 @@
 			path = "QuickOpen Demo";
 			sourceTree = "<group>";
 		};
+		3BEB4FC12574866100ED8B07 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				3BEB4FC22574869F00ED8B07 /* quickopen.xcodeproj */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		3BEB4FC32574869F00ED8B07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BEB4FC72574869F00ED8B07 /* quickopen.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BEB4FC8257486BD00ED8B07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,6 +126,7 @@
 				3BEB4FAA2574865B00ED8B07 /* Sources */,
 				3BEB4FAB2574865B00ED8B07 /* Frameworks */,
 				3BEB4FAC2574865B00ED8B07 /* Resources */,
+				3BEB4FD12574883F00ED8B07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,12 +163,28 @@
 			mainGroup = 3BEB4FA52574865B00ED8B07;
 			productRefGroup = 3BEB4FAF2574865B00ED8B07 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3BEB4FC32574869F00ED8B07 /* Products */;
+					ProjectRef = 3BEB4FC22574869F00ED8B07 /* quickopen.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3BEB4FAD2574865B00ED8B07 /* QuickOpen Demo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3BEB4FC72574869F00ED8B07 /* quickopen.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = quickopen.framework;
+			remoteRef = 3BEB4FC62574869F00ED8B07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3BEB4FAC2574865B00ED8B07 /* Resources */ = {

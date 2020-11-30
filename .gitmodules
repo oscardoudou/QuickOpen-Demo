@@ -1,0 +1,3 @@
+[submodule "Submodules/quick-open"]
+	path = Submodules/quick-open
+	url = https://github.com/oscardoudou/quick-open
