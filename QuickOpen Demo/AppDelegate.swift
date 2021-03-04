@@ -10,10 +10,20 @@ import Cocoa
 import Carbon
 import quickopen
 
+let logger: Logger = {
+    #if DEBUG
+     print("I'm running in a DEBUG mode")
+    return Logger()
+    #else
+     print("I'm running in a non-DEBUG mode")
+    return nil
+    #endif
+}()
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
     var quickOpenWindowController: QuickOpenWindowController!
+
     
     func register() {
           var hotKeyRef: EventHotKeyRef?
@@ -35,7 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             (nextHanlder, theEvent, observer) -> OSStatus in
             let mySelf = Unmanaged<AppDelegate>.fromOpaque(observer!).takeUnretainedValue()
             mySelf.quickOpenWindowController.toggle()
-            print("Option +  Space Released!")
+
+            logger.log(category: .event, message: "option + space Released!")
             return noErr
           }, 1, &eventType, observer, nil)
 
@@ -54,25 +65,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         register()
         
         NSApp.windows.forEach{window in
+            logger.log(category: .app, message: "\(window)")
             if(window.className.contains("NSWindow")){
                 window.close()
+                logger.log(category: .app, message: "\(window) should be closed")
             }
         }
-    }
-
-}
-
-extension String{
-    public var fourCharCodeValue: Int {
-      var result: Int = 0
-      if let data = self.data(using: String.Encoding.macOSRoman) {
-        data.withUnsafeBytes({ (rawBytes) in
-          let bytes = rawBytes.bindMemory(to: UInt8.self)
-          for i in 0 ..< data.count {
-            result = result << 8 + Int(bytes[i])
-          }
-        })
-      }
-      return result
+        logger.log(category: .app, message: "AXIsProcessTrusted(): \(AXIsProcessTrusted())")
+        logger.log(category: .app, message: "\(quickOpenWindowController)")
     }
 }
